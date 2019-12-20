@@ -1,0 +1,17 @@
+<a class="labeling__back_button" [routerLink]="['/']"><i class="icon-circled_left"></i></a>
+<div class="labeling__labels_list">
+    <ul>
+        <li *ngFor="let label of (labels | async)">
+            <a [ngStyle]="{background:label.fill}" (mouseover)="highlightLabel(label.id)">{{ label.categoryName }}</a>
+            <button (click)="removeLabel(label.id)"><i class="icon-delete"></i></button>
+        </li>
+    </ul>
+</div>
+<ko-stage #konva [config]="configStage"></ko-stage>
+<div class="labeling__navigation d-flex justify-content-center align-items-center">
+    <app-labeling-tool-triangle-label (onInit)="registerTool($event)"></app-labeling-tool-triangle-label>
+    <app-labeling-tool-rectangle-label (onInit)="registerTool($event)"></app-labeling-tool-rectangle-label>
+    <app-labeling-tool-hexagon-label (onInit)="registerTool($event)"></app-labeling-tool-hexagon-label>
+    <app-labeling-tool-ellipse-label (onInit)="registerTool($event)"></app-labeling-tool-ellipse-label>
+    <app-labeling-tool-shape-label (onInit)="registerTool($event)"></app-labeling-tool-shape-label>
+</div>

@@ -1,0 +1,18 @@
+<div class="modal-content">
+    <div class="modal-body">
+        <form>
+            <h5 class="mb-3">Edit category</h5>
+            <div class="form-group">
+                <input [(ngModel)]="category.name" name="categoryName" class="form-control" type="text" placeholder="Category name" required minlength="1">
+            </div>
+            <div class="form-group">
+                <input type="hidden" [(colorPicker)]="category.color" [cpDialogDisplay]="'inline'" [cpToggle]="true">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn pl-0 btn-sm d-flex align-items-center text-danger mr-auto ml-0" (click)="delete()"><i class="icon-delete mr-1"></i> Delete category</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="close()">Cancel</button>
+        <button type="button" class="btn btn-secondary" (click)="confirm()" [disabled]="!category.name">Save</button>
+    </div>
+</div>

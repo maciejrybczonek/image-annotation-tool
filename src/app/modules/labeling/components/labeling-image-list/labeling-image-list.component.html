@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col">
+        <h5 class="m-2 d-flex align-items-center text-uppercase"><i class="icon-gallery mr-2"></i> Images</h5>
+    </div>
+    <div class="col">
+        <button class="labeling__download_button float-right" (click)="downloadLabels()" *ngIf="images"><i class="icon-download mr-2"></i> Download labels (JSON)</button>
+    </div>
+</div>
+<div class="labeling__image-list">
+    <div class="labeling__grid-item">
+        <button class="labeling__btn-add-image" (click)="uploader.click()">
+            <i class="icon-add"></i>
+        </button>
+        <input hidden type="file" #uploader (change)="uploadImage($event)" accept="image/x-png,image/gif,image/jpeg" multiple>
+    </div>
+    <a class="labeling__grid-item" [routerLink]="['', image.id]" *ngFor="let image of images">
+        <img src="{{image.content}}" class="img-fluid">
+        <button class="labeling__btn-remove-image" (click)="removeImage(image.id, $event)"><i class="icon-delete"></i></button>
+    </a>
+</div>

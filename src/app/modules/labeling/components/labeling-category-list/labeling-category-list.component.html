@@ -1,0 +1,11 @@
+<div *ngIf="categories.length">
+    <h5 class="m-2 mt-3 d-flex align-items-center text-uppercase"><i class="icon-categorize mr-2"></i> Categories</h5>
+    <div class="labeling__category-list">
+        <div class="labeling__grid-item" *ngFor="let category of categories">
+            <button (click)="editCategory(category.id)">
+                <span class="labeling__category-color" [ngStyle]="{background: category.color}"></span>
+                {{category.name}}
+            </button>
+        </div>
+    </div>
+</div>

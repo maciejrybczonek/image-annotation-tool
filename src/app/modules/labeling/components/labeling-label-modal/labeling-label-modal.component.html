@@ -1,0 +1,19 @@
+<div class="modal-content">
+    <div class="modal-body">
+        <tag-input [ngModel]="labelCategory" [secondaryPlaceholder]="'Enter a category name'" [maxItems]="1" (onAdd)="addCategory($event)" [identifyBy]="'id'" [displayBy]="'name'" theme="minimal" #input>
+            <ng-template let-item="item" let-index="index">
+                <div class="d-flex align-items-center">
+                    <span class="labeling__category-color" [ngStyle]="{background: item.color}">&nbsp;</span>{{item.name}}
+                    <button class="btn" (click)="input.removeItem(item, index)">&times;</button>
+                </div>
+            </ng-template>
+            <tag-input-dropdown [autocompleteItems]="categories" [showDropdownIfEmpty]="true" [identifyBy]="'id'" [displayBy]="'name'" [limitItemsTo]="8">
+                <ng-template let-item="item" let-index="index">
+                    <div class="d-flex align-items-center">
+                        <span class="labeling__category-color" [ngStyle]="{background: item.color}">&nbsp;</span> {{item.name}}
+                    </div>
+                </ng-template>
+            </tag-input-dropdown>
+        </tag-input>
+    </div>
+</div>
